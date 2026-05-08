@@ -15,7 +15,8 @@ type Task struct {
 }
 
 type TaskService interface {
-	CreateTask(ctx context.Context, task *Task) error
+	FindTasks() ([]*Task, error)
+	CreateTask(task *Task) (*Task, error)
 	UpdateTask(ctx context.Context, id int, upd UpdateTask) (*Task, error)
 }
 
